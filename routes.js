@@ -185,19 +185,21 @@ router.get('/', (req, res) => {
     domain,
     email: contactEmail,
     siteName,
+    siteLogo,
     showKofi,
   });
 });
 
 router.get('/new', (req, res) => {
-  res.render('home');
+  res.render('home', { siteLogo });
 });
 
 router.get('/new/event', (req, res) => {
   res.render('newevent', {
     domain: domain,
     email: contactEmail,
-    siteName: siteName,
+    siteName,
+    siteLogo,
   });
 });
 router.get('/new/event/public', (req, res) => {
@@ -214,7 +216,8 @@ router.get('/new/event/public', (req, res) => {
     eventType: 'public',
     domain: domain,
     email: contactEmail,
-    siteName: siteName,
+    siteName,
+    siteLogo,
   });
 })
 
@@ -412,33 +415,34 @@ router.get('/:eventID', (req, res) => {
         else {
           res.set("X-Robots-Tag", "noindex");
           res.render('event', {
-            domain: domain,
-            isFederated: isFederated,
+            domain,
+            isFederated,
             email: contactEmail,
             title: event.name,
-            escapedName: escapedName,
+            escapedName,
             eventData: event,
-            eventAttendees: eventAttendees,
+            eventAttendees,
             numberOfAttendees,
-            spotsRemaining: spotsRemaining,
-            noMoreSpots: noMoreSpots,
-            eventStartISO: eventStartISO,
-            eventEndISO: eventEndISO,
-            parsedLocation: parsedLocation,
-            parsedStart: parsedStart,
-            parsedEnd: parsedEnd,
-            displayDate: displayDate,
-            fromNow: fromNow,
+            spotsRemaining,
+            noMoreSpots,
+            eventStartISO,
+            eventEndISO,
+            parsedLocation,
+            parsedStart,
+            parsedEnd,
+            displayDate,
+            fromNow,
             timezone: event.timezone,
-            parsedDescription: parsedDescription,
-            editingEnabled: editingEnabled,
-            eventHasCoverImage: eventHasCoverImage,
-            eventHasHost: eventHasHost,
-            firstLoad: firstLoad,
-            eventHasConcluded: eventHasConcluded,
-            eventHasBegun: eventHasBegun,
-            metadata: metadata,
-            siteName: siteName
+            parsedDescription,
+            editingEnabled,
+            eventHasCoverImage,
+            eventHasHost,
+            firstLoad,
+            eventHasConcluded,
+            eventHasBegun,
+            metadata,
+            siteName,
+            siteLogo,
           })
         }
       }

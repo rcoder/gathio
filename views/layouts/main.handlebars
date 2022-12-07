@@ -59,6 +59,8 @@
     <div class="container h-100">
       <div class="row" id="container">
         <div class="col-lg-2 col-md-3 col-sm-4" id="sidebar">
+          {{#if siteLogo}}
+            <a href="/" class="thumbnail"><img class="m-2 mt-4" src="{{siteLogo}}" width="140"></a>{{/if}}
           {{>sidebar}}
         </div>
         <div class="col-sm pt-3" id="content">
